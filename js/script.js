@@ -1,3 +1,4 @@
+console.log('JS OK');
 /* 
 Il programma dovrà mostrare una form da compilare con cui chiedere all'utente il numero di chilometri che vuole percorrere e l'età del passeggero.
 Sulla base di queste informazioni dovrà calcolare il prezzo totale del viaggio, secondo queste regole:
@@ -14,19 +15,21 @@ Evitiamo per il momento di utilizzare il tag <form> di HTML , poichè potrebbe g
 
 
 // prendiamo le informazioni dall'utente, per poterle utilizzare su JS (ci serviranno poi per stampare in pagina le info sul biglietto)
-const userInfo = document.getElementById('user-info');
+const userInfo = document.getElementById('user-info').value;
 
 // recuperiamo le informazioni sui KM che vuole percorrere
-const kms = parseInt(document.getElementById('kms'));
+const kms = document.getElementById('kms');
 
 // recuperiamo la sua età
-const age = document.getElementById('age');
+const age = document.getElementById('age').value;
 
 // colleghiamo il bottone "genera" con JS
 const buttonGenerate = document.querySelector('.btn-primary');
 // e subito dopo ci accertiamo che faccia qualcosa
 buttonGenerate.addEventListener('click', function () {
-    let ticketPrice = (kms * 0.21).toFixed(2);
+    const kmsValue = parseInt(kms.value);
+    console.log(kmsValue);
+    let ticketPrice = (kmsValue * 0.21).toFixed(2);
     console.log(ticketPrice);
 
     // qui dovremmo calcolare SE (if) ci sono sconti particolari da effettuare. Capire come fare per collegare i vari step del select a questo passaggio.
