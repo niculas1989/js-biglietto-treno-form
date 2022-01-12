@@ -13,7 +13,7 @@ Evitiamo per il momento di utilizzare il tag <form> di HTML , poichè potrebbe g
 */
 
 const userInfo = document.getElementById('user-info');
-const kms = document.getElementById('kms');
+const kms = parseInt(document.getElementById('kms'));
 
 
 const buttonGenerate = document.querySelector('.btn-primary');
@@ -22,3 +22,13 @@ buttonGenerate.addEventListener('click', function () {
     let ticketPrice = (kms * 0.21).toFixed(2);
     console.log(ticketPrice);
 })
+
+
+
+
+// ! FORMULE SCONTO
+/* 
+const underEighteenPrice = (ticketPrice / 100) * 20;
+
+const overSixtyFivePrice = (ticketPrice / 100) * 40;
+*/
