@@ -68,18 +68,18 @@ buttonGenerate.addEventListener('click', function () {
     console.log(ticketPrice);
 
     // qui dovremmo calcolare SE (if) ci sono sconti particolari da effettuare. Capire come fare per collegare i vari step del select a questo passaggio.
-    const ageValue = age.value;
-    console.log(ageValue);
-    const minorenneValue = minorenne.value;
-    const overValue = over.value;
+    // const ageValue = age.value;
+    // // console.log(ageValue);
+    // const minorenneValue = minorenne.value;
+    // const overValue = over.value;
 
-    if (minorenneValue) {
+    if (minorenne) {
         const underEighteenPrice = (ticketPrice / 100) * 20;
         console.log(underEighteenPrice);
         let ticketPriceSale = (ticketPrice - underEighteenPrice).toFixed(2);
         console.log(ticketPriceSale);
         price.innerText = ticketPriceSale;
-    } else if (overValue) {
+    } else if (over) {
         const overSixtyFivePrice = (ticketPrice / 100) * 40;
         console.log(overSixtyFivePrice);
         let ticketPriceSale = (ticketPrice - overSixtyFivePrice).toFixed(2);
@@ -88,8 +88,6 @@ buttonGenerate.addEventListener('click', function () {
     } else {
         price.innerText = ticketPrice;
     }
-
-
 })
 
 
