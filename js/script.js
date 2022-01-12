@@ -11,3 +11,6 @@ ATTENZIONE:
 Controlliamo che tipo di valore viene restituito dai value degli input?
 Evitiamo per il momento di utilizzare il tag <form> di HTML , poichè potrebbe giocarci qualche scherzetto inaspettato!
 */
+
+const userInfo = document.getElementById('user-info');
+const kms = document.getElementById('kms');
