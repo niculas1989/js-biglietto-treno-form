@@ -15,25 +15,68 @@ Evitiamo per il momento di utilizzare il tag <form> di HTML , poichè potrebbe g
 
 
 // prendiamo le informazioni dall'utente, per poterle utilizzare su JS (ci serviranno poi per stampare in pagina le info sul biglietto)
-const userInfo = document.getElementById('user-info').value;
+const userInfo = document.getElementById('user-info');
+// userInfoValue per il bottone
 
 // recuperiamo le informazioni sui KM che vuole percorrere
 const kms = document.getElementById('kms');
 
 // recuperiamo la sua età
-const age = document.getElementById('age').value;
+const age = document.getElementById('age');
+// ageValue per il bottone
+
+// recuperiamo il nome passeggero(l'elemento)
+const name = document.getElementById('name');
+
+// recuperiamo il costo del biglietto (l'elemento)
+const price = document.getElementById('price');
+
+// recuperiamo il valore "minorenne" dalla pagina
+const minorenne = document.querySelector('.minorenne');
+
+// recuperiamo il valore "over" dalla pagina
+const over = document.querySelector('.over65');
+
+
 
 // colleghiamo il bottone "genera" con JS
 const buttonGenerate = document.querySelector('.btn-primary');
 // e subito dopo ci accertiamo che faccia qualcosa
 buttonGenerate.addEventListener('click', function () {
+    const userInfoValue = userInfo.value;
+    console.log(userInfoValue);
+    name.innerText = userInfoValue;
+
+
     const kmsValue = parseInt(kms.value);
     console.log(kmsValue);
     let ticketPrice = (kmsValue * 0.21).toFixed(2);
     console.log(ticketPrice);
 
     // qui dovremmo calcolare SE (if) ci sono sconti particolari da effettuare. Capire come fare per collegare i vari step del select a questo passaggio.
+    const ageValue = age.value;
+    console.log(ageValue);
+    const minorenneValue = minorenne.value;
+    const overValue = over.value;
+
+    if (minorenneValue) {
+        const underEighteenPrice = (ticketPrice / 100) * 20;
+        console.log(underEighteenPrice);
+        let ticketPriceSale = (ticketPrice - underEighteenPrice).toFixed(2);
+        console.log(ticketPriceSale);
+        price.innerText = ticketPriceSale;
+    } else if (overValue) {
+        const overSixtyFivePrice = (ticketPrice / 100) * 40;
+        console.log(overSixtyFivePrice);
+        let ticketPriceSale = (ticketPrice - overSixtyFivePrice).toFixed(2);
+        console.log(ticketPriceSale);
+        price.innerText = ticketPriceSale;
+    } else {
+        price.innerText = ticketPrice;
+    }
 })
+
+
 
 
 
