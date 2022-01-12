@@ -37,6 +37,14 @@ const minorenne = document.querySelector('.minorenne');
 // recuperiamo il valore "over" dalla pagina
 const over = document.querySelector('.over65');
 
+// recuperiamo il valore "carrozza" dalla pagina
+const carrozza = document.querySelector('#carrozza');
+
+// recuperiamo il valore "code" dalla pagina
+const code = document.querySelector('#code');
+
+
+
 
 
 // colleghiamo il bottone "genera" con JS
@@ -46,6 +54,12 @@ buttonGenerate.addEventListener('click', function () {
     const userInfoValue = userInfo.value;
     console.log(userInfoValue);
     name.innerText = userInfoValue;
+
+    const casualCarrozzaNumber = Math.floor((Math.random()) * 15);
+    carrozza.innerText = casualCarrozzaNumber;
+
+    const casualCodeNumber = Math.floor((Math.random()) * 1000);
+    code.innerText = casualCodeNumber;
 
 
     const kmsValue = parseInt(kms.value);
@@ -74,6 +88,8 @@ buttonGenerate.addEventListener('click', function () {
     } else {
         price.innerText = ticketPrice;
     }
+
+
 })
 
 
