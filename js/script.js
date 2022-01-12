@@ -51,8 +51,12 @@ const code = document.querySelector('#code');
 const buttonGenerate = document.querySelector('.btn-primary');
 // e subito dopo ci accertiamo che faccia qualcosa
 buttonGenerate.addEventListener('click', function () {
+    const kmsValue = parseInt(kms.value);
+    console.log(kmsValue);
+    let ticketPrice = (kmsValue * 0.21).toFixed(2);
+    console.log(ticketPrice);
+
     const userInfoValue = userInfo.value;
-    console.log(userInfoValue);
     name.innerText = userInfoValue;
 
     const casualCarrozzaNumber = Math.floor((Math.random()) * 15);
@@ -62,24 +66,19 @@ buttonGenerate.addEventListener('click', function () {
     code.innerText = casualCodeNumber;
 
 
-    const kmsValue = parseInt(kms.value);
-    console.log(kmsValue);
-    let ticketPrice = (kmsValue * 0.21).toFixed(2);
-    console.log(ticketPrice);
-
     // qui dovremmo calcolare SE (if) ci sono sconti particolari da effettuare. Capire come fare per collegare i vari step del select a questo passaggio.
     // const ageValue = age.value;
     // // console.log(ageValue);
-    // const minorenneValue = minorenne.value;
-    // const overValue = over.value;
+    const minorenneValue = minorenne.value;
+    const overValue = over.value;
 
-    if (minorenne) {
+    if (age.value === minorenneValue) {
         const underEighteenPrice = (ticketPrice / 100) * 20;
         console.log(underEighteenPrice);
         let ticketPriceSale = (ticketPrice - underEighteenPrice).toFixed(2);
         console.log(ticketPriceSale);
         price.innerText = ticketPriceSale;
-    } else if (over) {
+    } else if (age.value === overValue) {
         const overSixtyFivePrice = (ticketPrice / 100) * 40;
         console.log(overSixtyFivePrice);
         let ticketPriceSale = (ticketPrice - overSixtyFivePrice).toFixed(2);
@@ -90,6 +89,24 @@ buttonGenerate.addEventListener('click', function () {
     }
 })
 
+
+/*
+if (minorenne) {
+    const underEighteenPrice = (ticketPrice / 100) * 20;
+    console.log(underEighteenPrice);
+    let ticketPriceSale = (ticketPrice - underEighteenPrice).toFixed(2);
+    console.log(ticketPriceSale);
+    price.innerText = ticketPriceSale;
+} else if (over) {
+    const overSixtyFivePrice = (ticketPrice / 100) * 40;
+    console.log(overSixtyFivePrice);
+    let ticketPriceSale = (ticketPrice - overSixtyFivePrice).toFixed(2);
+    console.log(ticketPriceSale);
+    price.innerText = ticketPriceSale;
+} else {
+    price.innerText = ticketPrice;
+}
+*/
 
 
 
