@@ -43,6 +43,11 @@ const carrozza = document.querySelector('#carrozza');
 // recuperiamo il valore "code" dalla pagina
 const code = document.querySelector('#code');
 
+// recuperiamo il valore "result" dalla pagina
+const result = document.querySelector('#result');
+
+
+
 
 
 
@@ -78,35 +83,27 @@ buttonGenerate.addEventListener('click', function () {
         let ticketPriceSale = (ticketPrice - underEighteenPrice).toFixed(2);
         console.log(ticketPriceSale);
         price.innerText = ticketPriceSale;
+        result.innerText = 'Biglietto Junior';
     } else if (age.value === overValue) {
         const overSixtyFivePrice = (ticketPrice / 100) * 40;
         console.log(overSixtyFivePrice);
         let ticketPriceSale = (ticketPrice - overSixtyFivePrice).toFixed(2);
         console.log(ticketPriceSale);
         price.innerText = ticketPriceSale;
+        result.innerText = 'Biglietto Senior';
     } else {
         price.innerText = ticketPrice;
+        result.innerText = 'Biglietto Standard';
     }
 })
 
 
-/*
-if (minorenne) {
-    const underEighteenPrice = (ticketPrice / 100) * 20;
-    console.log(underEighteenPrice);
-    let ticketPriceSale = (ticketPrice - underEighteenPrice).toFixed(2);
-    console.log(ticketPriceSale);
-    price.innerText = ticketPriceSale;
-} else if (over) {
-    const overSixtyFivePrice = (ticketPrice / 100) * 40;
-    console.log(overSixtyFivePrice);
-    let ticketPriceSale = (ticketPrice - overSixtyFivePrice).toFixed(2);
-    console.log(ticketPriceSale);
-    price.innerText = ticketPriceSale;
-} else {
-    price.innerText = ticketPrice;
-}
-*/
+const buttonErase = document.querySelector('.btn-secondary');
+// e subito dopo ci accertiamo che faccia qualcosa
+buttonErase.addEventListener('click', function () {
+    userInfo.value = '';
+    kms.value = '';
+})
 
 
 
