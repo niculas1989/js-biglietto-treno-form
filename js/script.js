@@ -14,3 +14,5 @@ Evitiamo per il momento di utilizzare il tag <form> di HTML , poichè potrebbe g
 
 const userInfo = document.getElementById('user-info');
 const kms = document.getElementById('kms');
+
+let ticketPrice = (kms * 0.21).toFixed(2);
